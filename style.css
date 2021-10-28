@@ -32,17 +32,29 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0 24px;
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 99; }
+  z-index: 1; }
   @media only screen and (min-width: 1439px) {
     .page-header {
       display: none; } }
   .page-header .page-header__left-icon-block {
     display: flex;
     align-items: center; }
+    @media only screen and (max-width: 767px) {
+      .page-header .page-header__left-icon-block {
+        position: relative; }
+        .page-header .page-header__left-icon-block:after {
+          content: "";
+          position: absolute;
+          width: 2px;
+          height: 32px;
+          border-radius: 1px;
+          background-color: #EAEAEA;
+          right: -15px;
+          top: 12px; } }
     .page-header .page-header__left-icon-block .page-header__img {
       width: 96px;
       height: 50px;
@@ -120,19 +132,6 @@ body {
       @media only screen and (max-width: 767px) {
         .page-header .page-header__right-icon-block .page-header__right-icon-subblock {
           margin-left: unset; } }
-      @media only screen and (max-width: 320px) {
-        .page-header .page-header__right-icon-block .page-header__right-icon-subblock {
-          position: relative; }
-          .page-header .page-header__right-icon-block .page-header__right-icon-subblock:before {
-            content: "";
-            position: absolute;
-            height: 32px;
-            width: 2px;
-            border-radius: 1px;
-            background-color: #EAEAEA;
-            top: 5px;
-            left: 0;
-            transform: translateX(-15px); } }
       .page-header .page-header__right-icon-block .page-header__right-icon-subblock button:not(:first-child) {
         margin-left: 16px; }
 
@@ -141,23 +140,34 @@ body {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   background-color: #FF3E79;
-  border-radius: 20px; }
+  border-radius: 20px;
+  border: 2px solid #FF3E79; }
+  .circle-icon-button:hover {
+    transition: 1s;
+    border-color: #000; }
 
 .page-content {
-  background-color: #F8F8F8;
-  margin-top: 88px; }
+  background-color: #F8F8F8; }
   @media only screen and (min-width: 1439px) {
     .page-content {
-      margin-left: 320px;
-      margin-top: unset; } }
-
-.page-content.page-content--blur {
-  transition-duration: 1s;
-  transition-property: opacity;
-  opacity: 0.5; }
+      margin-left: 320px; } }
+  @media only screen and (max-width: 767px) {
+    .page-content {
+      position: relative; }
+      .page-content:after {
+        background: linear-gradient(270deg, #F8F8F8 16.84%, rgba(248, 248, 248, 0.0001) 100%);
+        content: "";
+        top: 0;
+        right: 0;
+        position: absolute;
+        display: block;
+        height: 100%;
+        width: 24px;
+        z-index: 99;
+        bottom: 0; } }
 
 .left-sidebar {
   display: flex;
@@ -172,26 +182,33 @@ body {
   transition-duration: 1s;
   transition-property: transform;
   transform: translateX(-320px); }
+  .left-sidebar .nav-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%; }
   @media only screen and (min-width: 1439px) {
     .left-sidebar {
-      position: fixed;
+      position: sticky;
       float: left;
       transform: none; } }
   .left-sidebar .left-sidebar__header {
     display: flex;
     align-items: center;
     height: 70px;
-    padding: 5px 16px; }
+    justify-content: space-between;
+    margin: 30px 22px 0 22px; }
     @media only screen and (max-width: 767px) {
       .left-sidebar .left-sidebar__header {
         justify-content: space-between; } }
     .left-sidebar .left-sidebar__header .left-sidebar__button-wrapper {
       display: flex;
       align-items: center; }
-    .left-sidebar .left-sidebar__header .left-sidebar__cps-logo {
-      margin-left: 16px; }
-    .left-sidebar .left-sidebar__header .left-sidebar__search-button {
-      margin-left: 78px; }
+    @media only screen and (max-width: 1439px) {
+      .left-sidebar .left-sidebar__header .left-sidebar__cps-logo {
+        margin-left: 15px; } }
+    @media only screen and (min-width: 1439px) {
+      .left-sidebar .left-sidebar__header .left-sidebar__search-button {
+        margin-left: 118px; } }
     .left-sidebar .left-sidebar__header .left-sidebar__close-button {
       display: none;
       position: relative; }
@@ -268,16 +285,21 @@ body {
         margin-left: 16px; }
     .left-sidebar .left-sidebar__footer .left-sidebar__footer-text {
       font-family: TTLakes-Medium;
-      margin-bottom: 8px; }
-      .left-sidebar .left-sidebar__footer .left-sidebar__footer-text p {
-        margin-bottom: 12px; }
-      .left-sidebar .left-sidebar__footer .left-sidebar__footer-text span {
-        font-family: TTLakes-Bold; }
+      margin-bottom: 8px;
+      display: flex;
+      flex-direction: column; }
+      .left-sidebar .left-sidebar__footer .left-sidebar__footer-text a:last-child {
+        margin-top: 12px;
+        font-family: TTLakes-Bold;
+        font-size: 24px; }
     .left-sidebar .left-sidebar__footer .left-sidebar__footer-language {
       display: flex; }
+      .left-sidebar .left-sidebar__footer .left-sidebar__footer-language span {
+        font-family: TTLakes-Medium;
+        font-size: 16px; }
       .left-sidebar .left-sidebar__footer .left-sidebar__footer-language button:not(:first-child) {
         margin-left: 7px; }
-      .left-sidebar .left-sidebar__footer .left-sidebar__footer-language button:first-child {
+      .left-sidebar .left-sidebar__footer .left-sidebar__footer-language .left-sidebar__footer-language-button--active {
         color: #7E7E82; }
 
 .left-sidebar.left-sidebar--open {
@@ -340,7 +362,7 @@ body {
       font-size: 28px; }
     .services .services__header .services__header-buttons {
       display: flex; }
-      @media only screen and (max-width: 769px) {
+      @media only screen and (max-width: 1439px) {
         .services .services__header .services__header-buttons {
           display: none; } }
       .services .services__header .services__header-buttons .services__single-button {
@@ -413,17 +435,15 @@ body {
       font-family: TTLakes-Regular;
       font-size: 14px;
       max-height: 164px;
-      overflow: hidden; }
-      @media only screen and (min-width: 321px) {
+      overflow: hidden;
+      transition: 1s;
+      transition-property: max-height; }
+      @media only screen and (max-width: 321px) {
         .services .services__info .services__main-text {
-          max-height: 100px; } }
+          max-height: 80px; } }
       @media only screen and (max-width: 767px) {
         .services .services__info .services__main-text {
           margin: unset; } }
-    .services .services__info .services__main-text.services__main-text--open {
-      max-height: -webkit-fit-content;
-      max-height: -moz-fit-content;
-      max-height: fit-content; }
     .services .services__info .services__close-more-button {
       display: none; }
       .services .services__info .services__close-more-button img {
@@ -476,7 +496,9 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     grid-column-gap: 24px;
     grid-row-gap: 16px;
-    height: 165px;
+    max-height: 165px;
+    transition: 1s;
+    transition-property: max-height;
     overflow: hidden; }
     @media only screen and (max-width: 1439px) {
       .repair-brands .repair-brands__brand-list {
@@ -493,11 +515,14 @@ body {
         .repair-brands .repair-brands__brand-list .repair-brands__brand-list-item {
           width: 240px; } }
     .repair-brands .repair-brands__brand-list .repair-brands__brand-list-item {
-      width: 240px;
+      width: 100%;
       height: 72px;
       border-radius: 6px;
       background-color: #fff;
       padding: 0 16px; }
+      @media only screen and (max-width: 767px) {
+        .repair-brands .repair-brands__brand-list .repair-brands__brand-list-item {
+          width: 240px; } }
       .repair-brands .repair-brands__brand-list .repair-brands__brand-list-item a {
         display: flex;
         width: 100%;
@@ -525,9 +550,6 @@ body {
     display: none; }
     .repair-brands .repair-brands__close-more-button img {
       transform: rotate(180deg); }
-
-.repair-brands.show-brands .repair-brands__brand-list {
-  height: auto; }
 
 .repair-brands.show-brands .repair-brands__close-more-button {
   display: flex; }
@@ -572,7 +594,9 @@ body {
     grid-column-gap: 24px;
     grid-row-gap: 16px;
     max-height: 165px;
-    overflow: hidden; }
+    overflow: hidden;
+    transition: 1s;
+    transition-property: max-height; }
     @media only screen and (max-width: 767px) {
       .repair-tech .repair-tech__tech-list {
         overflow: visible;
@@ -615,11 +639,6 @@ body {
   .repair-tech .show-close-button {
     margin-left: 39px; }
 
-.repair-tech__tech-wrapper.repair-tech--show .repair-tech__tech-list {
-  max-height: -webkit-fit-content;
-  max-height: -moz-fit-content;
-  max-height: fit-content; }
-
 .repair-tech__tech-wrapper.repair-tech--show .repair-tech__show-more-button {
   display: none; }
 
@@ -643,7 +662,8 @@ body {
   .prices .prices__table {
     box-sizing: border-box;
     height: 356px;
-    width: 100%; }
+    width: 100%;
+    border-spacing: 0; }
     .prices .prices__table th {
       font-family: TTLakes-Medium;
       font-size: 14px;
@@ -681,10 +701,18 @@ body {
           height: 27px;
           padding: 15px;
           border-radius: 16px;
-          font-family: 'TTLakes-Medium';
+          font-family: 'TTLakes-Bold';
           color: #fff;
           text-transform: uppercase;
           margin: auto; }
+          .prices .prices__table .prices__table-item td .prices__table-button:hover {
+            transition-duration: 1s;
+            transition-property: color;
+            color: black; }
+            .prices .prices__table .prices__table-item td .prices__table-button:hover img {
+              transition-duration: 1s;
+              transition-property: transform;
+              transform: rotate(90deg); }
       .prices .prices__table .prices__table-item:first-child td:first-child {
         border-top-left-radius: 10px; }
       .prices .prices__table .prices__table-item:first-child td:last-child {
@@ -760,8 +788,7 @@ body {
 
 .page-footer {
   background-color: #F8F8F8;
-  padding: 32px 24px;
-  border-top: 1px solid #41F6D7; }
+  padding: 32px 24px; }
   @media only screen and (min-width: 1439px) {
     .page-footer {
       margin-left: 320px; } }
@@ -814,7 +841,7 @@ body {
     top: -7px;
     transform: translateX(-60px);
     cursor: pointer; }
-    @media only screen and (max-width: 767px) {
+    @media only screen and (max-width: 1025px) {
       .callback-modal .callback-modal__close-button {
         position: relative;
         left: 30px;
@@ -923,7 +950,7 @@ body {
     top: 30px;
     left: 0;
     transform: translateX(-60px); }
-    @media only screen and (max-width: 767px) {
+    @media only screen and (max-width: 1025px) {
       .usercall-modal .usercall-modal__close-button {
         position: relative;
         top: 24px;
@@ -975,6 +1002,16 @@ body {
     .usercall-modal--show {
       width: 100%;
       height: 100%; } }
+
+.blur-wrapper--true {
+  transition-duration: 1s;
+  transition-property: opacity;
+  opacity: 0.5; }
+
+@media only screen and (min-width: 1439px) {
+  .page-wrapper {
+    max-width: 1440px;
+    margin: 0 auto; } }
 
 
 /*# sourceMappingURL=style.css.map*/
