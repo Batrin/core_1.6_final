@@ -156,18 +156,7 @@ body {
       margin-left: 320px; } }
   @media only screen and (max-width: 767px) {
     .page-content {
-      position: relative; }
-      .page-content:after {
-        background: linear-gradient(270deg, #F8F8F8 16.84%, rgba(248, 248, 248, 0.0001) 100%);
-        content: "";
-        top: 0;
-        right: 0;
-        position: absolute;
-        display: block;
-        height: 100%;
-        width: 24px;
-        z-index: 99;
-        bottom: 0; } }
+      position: relative; } }
 
 .left-sidebar {
   display: flex;
@@ -585,6 +574,29 @@ body {
     grid-gap: unset; }
   .repair-brands .repair-brands__swiper.swiper {
     position: relative; }
+    @media only screen and (max-width: 767px) {
+      .repair-brands .repair-brands__swiper.swiper:before {
+        box-shadow: rgba(136, 165, 191, 0.7) 6px 2px 40px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+        content: "";
+        top: 0;
+        left: -25px;
+        position: absolute;
+        display: block;
+        height: 100%;
+        width: 24px;
+        z-index: 99;
+        bottom: 0; }
+      .repair-brands .repair-brands__swiper.swiper:after {
+        box-shadow: rgba(136, 165, 191, 0.7) 6px 25px 40px 12px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+        content: "";
+        top: 0;
+        right: -25px;
+        position: absolute;
+        display: block;
+        height: 100%;
+        width: 24px;
+        z-index: 99;
+        bottom: 0; } }
     .repair-brands .repair-brands__swiper.swiper .show-close-button {
       display: none; }
     .repair-brands .repair-brands__swiper.swiper .swiper-pagination.repair-brands__pagination {
@@ -709,6 +721,29 @@ body {
 
 .repair-tech__tech-wrapper.swiper {
   position: relative; }
+  @media only screen and (max-width: 767px) {
+    .repair-tech__tech-wrapper.swiper:before {
+      box-shadow: rgba(136, 165, 191, 0.7) 6px 2px 40px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+      content: "";
+      top: 0;
+      left: -25px;
+      position: absolute;
+      display: block;
+      height: 100%;
+      width: 24px;
+      z-index: 99;
+      bottom: 0; }
+    .repair-tech__tech-wrapper.swiper:after {
+      box-shadow: rgba(136, 165, 191, 0.7) 6px 25px 40px 12px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+      content: "";
+      top: 0;
+      right: -25px;
+      position: absolute;
+      display: block;
+      height: 100%;
+      width: 24px;
+      z-index: 99;
+      bottom: 0; } }
   .repair-tech__tech-wrapper.swiper .tech-pagination {
     top: 200px; }
   .repair-tech__tech-wrapper.swiper .show-close-button {
@@ -718,7 +753,30 @@ body {
   box-sizing: border-box;
   margin-top: 20px; }
   .prices .prices__table-wrapper {
-    padding: 16px 24px 16px 24px; }
+    padding: 16px 24px 16px 24px;
+    position: relative; }
+    @media only screen and (max-width: 767px) {
+      .prices .prices__table-wrapper:before {
+        box-shadow: rgba(136, 165, 191, 0.7) 6px 2px 40px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+        content: "";
+        top: 0;
+        left: -25px;
+        position: absolute;
+        display: block;
+        height: 100%;
+        width: 24px;
+        z-index: 99;
+        bottom: 0; }
+      .prices .prices__table-wrapper:after {
+        box-shadow: rgba(136, 165, 191, 0.7) 6px 25px 40px 12px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+        content: "";
+        top: 0;
+        right: 0px;
+        position: absolute;
+        display: block;
+        height: 100%;
+        z-index: 99;
+        bottom: 0; } }
   .prices .prices__table {
     box-sizing: border-box;
     height: 356px;
@@ -816,10 +874,8 @@ body {
             font-family: TTLakes-Medium; }
       .prices .prices__table.flex-table tbody .prices__table-pagination {
         bottom: 0; }
-  .prices .prices__table-wrapper {
-    position: relative; }
-    .prices .prices__table-wrapper .prices__table-pagination {
-      bottom: 0; }
+  .prices .prices__table-wrapper .prices__table-pagination {
+    bottom: 0; }
   .prices .prices__footer {
     padding: 10px 24px 24px 24px; }
     .prices .prices__footer .prices__footer-text {
